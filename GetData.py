@@ -8,7 +8,7 @@ def generatePriceDF():
     """ Pulls stock data from start date to end date from yahoo finance """
     # getting start and end dates as well as stock tickers from settings.json
     with open('settings.json', 'r') as settings:
-        data = json.load(settings);
+        data = json.load(settings)
     start = tuple([int(i) for i in data['start'].split(',')])
     end = tuple([int(i) for i in data['end'].split(',')])
     tickers = data['tickers']
