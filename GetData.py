@@ -25,11 +25,25 @@ def generatePriceDF():
         dfList.append(tempdf)
     priceDF = pd.concat(dfList, axis=1, sort=False) # turning dataframe list into actual dataframe
 
-    print(priceDF)
     return priceDF
 
 def generateNDayForwardReturn():
-    """ Uses generatePriceDF() to generate N day forward return for each stock on each day """
+    """ Uses generatePriceDF() to generate n day forward return for each stock on each day """
+    # gets value of n from settings.json
+    with open('settings.json', 'r') as settings:
+        n = json.load(settings)['returnPeriod']
+    
+    pricesDF = generatePriceDF()
+    # creates new dataframe with same rows and columns as prices dataframe
+    returnsDF = pd.DataFrame(columns = pricesDF.columns, index = pricesDF.index[:-n])
 
+    # loops through each cell of priceDF
+    for i in range(len(pricesDF.index) - n):
+        for ticker in pricesDF.columns:
+            # n day forward return calculated as: (close of current day+n days - close of current day) / close of current day
+            decimalReturn = (pricesDF.iloc[i + n].loc[ticker] - pricesDF.iloc[i].loc[ticker]) / pricesDF.iloc[i].loc[ticker]
+            returnsDF.iloc[i].loc[ticker] = round((decimalReturn * 100), 3) # multiplies decimal return by 100 to get percent return, rounds to 3 decimal places
+    
+    return returnsDF
 
-generatePriceDF()
+print(generateNDayForwardReturn())

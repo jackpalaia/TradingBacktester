@@ -1,12 +1,15 @@
 {
     "returnPeriod": 3,
-    "start": "2020,1,1",
-    "end": "2020,2,1",
+    "start": "2020,1,2",
+    "end": "2020,1,23",
     "tickers": [
         "MSFT",
         "B",
         "F",
         "SLB",
-        "AMD"
+        "AMD",
+        "NVDA",
+        "BAC",
+        "CVX"
     ]
 }
