@@ -25,4 +25,7 @@ def generatePriceDF():
     print(priceDF)
     return priceDF
 
+def generateNDayForwardReturn():
+    
+
 generatePriceDF()
