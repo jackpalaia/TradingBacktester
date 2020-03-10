@@ -11,8 +11,8 @@ def generatePriceDF():
     start = tuple([int(i) for i in data['start'].split(',')])
     end = tuple([int(i) for i in data['end'].split(',')])
     tickers = data['tickers']
-    startDate = dt.datetime(start[0], start[1], start[2])
-    endDate = dt.datetime(end[0], end[1], end[2])
+    startDate = dt.datetime(start[2], start[0], start[1])
+    endDate = dt.datetime(end[2], end[0], end[1])
     
     # pulling data from yahoo finance, putting closing prices of each stock for each day in dataframe
     priceDF = pd.DataFrame()
