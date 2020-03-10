@@ -3,7 +3,6 @@ import pandas_datareader as web
 import datetime as dt
 import json
 
-
 def generatePriceDF():
     """ Pulls stock data from start date to end date from yahoo finance """
     # getting start and end dates as well as stock tickers from settings.json
