@@ -1,7 +1,7 @@
 {
     "returnPeriod": 3,
-    "start": "2020,1,2",
-    "end": "2020,1,23",
+    "start": "1,2,2019",
+    "end": "1,23,2019",
     "tickers": [
         "SPY"
     ]
